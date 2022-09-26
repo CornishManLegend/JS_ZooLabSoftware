@@ -13,9 +13,17 @@
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CornishManLegend/JS_ZooLabSoftware.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CornishManLegend/JS_ZooLabSoftware/issues"
+  },
+  "homepage": "https://github.com/CornishManLegend/JS_ZooLabSoftware#readme",
   "devDependencies": {
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.19.1",

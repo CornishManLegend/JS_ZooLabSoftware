@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     name: CI Build
     steps:
