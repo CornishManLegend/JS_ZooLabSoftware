@@ -1,8 +1,8 @@
-﻿//
-// namespace ZooLabLibrary.Animals.Medicines
-// {
-//     public class Antibiotics : Medicine
-//     {
-//         public override string MedicineType { get; } = "Antibiotics";
-//     }
-// }
+﻿import Medicine from "./Medicine";
+
+export default class Antibiotics extends Medicine {
+    constructor() {
+        super()
+        this.MedicineType = "Antibiotics";
+    }
+};

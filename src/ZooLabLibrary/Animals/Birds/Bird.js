@@ -1,20 +1,18 @@
-﻿// namespace ZooLabLibrary.Animals.Birds
-// {
-//     public abstract class Bird : Animal
-//     {
-//         protected Bird() {}
-//         protected Bird(int iD) : base (iD)
-//         { }
-//
-//         protected Bird(int iD, bool isSick) : base(iD)
-//         {
-//             IsSick = isSick;
-//         }
-//
-//         protected Bird(int iD, bool isSick, bool isHungry) : base(iD)
-//         {
-//             IsSick = isSick;
-//             IsHungry = isHungry;
-//         }
-//     }
-// }
+﻿import Animal from '../Animal';
+
+export default class Bird extends Animal {
+
+    constructor({ iD, isSick, isHungry }) {
+        super({ iD });
+        if (this.constructor.name === 'Bird') {
+            throw new Error(`${this.constructor.name}: can not create instance of abstract class`);
+        }
+
+        if (typeof isSick == "boolean"){
+            this.IsSick = isSick;
+        }
+        if (typeof isHungry == "boolean"){
+            this.IsHungry = isHungry;
+        }
+    }
+}

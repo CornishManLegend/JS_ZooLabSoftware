@@ -1,26 +1,18 @@
-﻿// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Text;
-// using System.Threading.Tasks;
-//
-// namespace ZooLabLibrary.Animals.Mammals
-// {
-//     public abstract class Mammal : Animal
-//     {
-//         protected Mammal() { }
-//         protected Mammal(int iD) : base(iD)
-//         { }
-//
-//         protected Mammal(int iD, bool isSick) : base(iD)
-//         {
-//             IsSick = isSick;
-//         }
-//
-//         protected Mammal(int iD, bool isSick, bool isHungry) : base(iD)
-//         {
-//             IsSick = isSick;
-//             IsHungry = isHungry;
-//         }
-//     }
-// }
+﻿import Animal from '../Animal';
+
+export default class Mammal extends Animal {
+
+    constructor({ iD, isSick, isHungry }) {
+        super({ iD });
+        if (this.constructor.name === 'Mammal') {
+            throw new Error(`${this.constructor.name}: can not create instance of abstract class`);
+        }
+
+        if (typeof isSick == "boolean"){
+            this.IsSick = isSick;
+        }
+        if (typeof isHungry == "boolean"){
+            this.IsHungry = isHungry;
+        }
+    }
+}

@@ -1,57 +1,42 @@
-﻿// using ZooLabLibrary.Animals.Medicines;
-// using ZooLabLibrary.Animals.Foods;
-// using ZooLabLibrary.Console;
-// using System.Linq;
-//
-// namespace ZooLabLibrary.Animals.Birds
-// {
-//     public class Parrot : Bird
-//     {
-//         private static readonly string[] _friendlyAnimals = new string[]
-//         {
-//                 "Parrot",
-//                 "Bison",
-//                 "Elephant",
-//                 "Turtle"
-//         };
-//
-//         public Parrot() { }
-//         public Parrot(int iD) : base(iD) {}
-//         public Parrot(int iD, bool isSick) : base(iD, isSick)
-//         {
-//             IsSick = isSick;
-//         }
-//
-//         public Parrot(int iD, bool isSick, bool isHungry) : base(iD, isSick, isHungry)
-//         {
-//             IsSick = isSick;
-//             IsHungry = isHungry;
-//         }
-//
-//         public override int RequiredSpaceSqFt { get; } = 5;
-//         public override string[] FavouriteFood { get; } = new string[] { "Vegetable" };
-//
-//         public override bool IsSick { get; set; }
-//
-//
-//
-//         public override bool IsFriendlyWith(Animal animal)
-//         {
-//             return _friendlyAnimals.Contains(animal.GetType().Name);
-//         }
-//
-//         public override void Feed(Food food)
-//         {
-//             if(IsHungry == true && FavouriteFood.Contains(food.FoodType))
-//                 IsHungry = false;
-//         }
-//
-//         public override void Heal(Medicine medicine)
-//         {
-//             if (this.IsSick == true && medicine.MedicineType == "AntiDepression")
-//                 IsSick = false;
-//         }
-//
-//     }
-//
-// }
+﻿import Medicine from '../../Medicines/Medicine';
+import Food from '../../Foods/Food';
+import Animal from '../Animal';
+import Bird from './Bird';
+
+export default class Parrot extends Bird {
+
+    #friendlyAnimals = [
+        "Parrot",
+        "Bison",
+        "Elephant",
+        "Turtle"
+    ];
+
+    favouriteFood = ["Vegetable"];
+
+    requiredSpaceSqFt = 5;
+
+    constructor({ iD, isSick, isHungry }) {
+        super({ iD, isSick, isHungry });
+    }
+
+    IsFriendlyWith(animal){
+        if(animal instanceof Animal){
+            return this.#friendlyAnimals.includes(animal.constructor.name)
+        }
+    }
+
+    Feed(food) {
+        if(food instanceof Food){
+            if(this.IsHungry === true && this.FavouriteFood.includes(food.FoodType))
+                this.IsHungry = false;
+        }
+    }
+
+    Heal(medicine) {
+        if(medicine instanceof Medicine){
+            if(this.IsSick === true && medicine.MedicineType === "AntiDepression")
+                this.IsSick = false;
+        }
+    }
+}
