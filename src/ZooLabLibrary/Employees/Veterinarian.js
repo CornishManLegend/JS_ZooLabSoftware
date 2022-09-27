@@ -1,6 +1,6 @@
-﻿import Employee from './Employee'
-import Logger from '../Logger'
-import Animal from '../Animals/Animal'
+﻿import Employee from './Employee';
+import Logger from '../Logger';
+import Animal from '../Animals/Animal';
 
 export default class Veterinarian extends Employee {
     constructor({ firstName, lastName, animalExperiences }) {
