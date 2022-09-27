@@ -1,30 +1,28 @@
-﻿// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Text;
-// using System.Threading.Tasks;
-// using ZooLabLibrary.Employees;
-//
-// namespace ZooLabLibrary.Validators.HireValidators
-// {
-//     public class HireValidatorProvider
-//     {
-//         private Zoo _zoo;
-//         public HireValidatorProvider(Zoo zoo)
-//         {
-//             _zoo = zoo;
-//         }
-//         public IHireValidator GetHireValidator(IEmployee employee)
-//         {
-//             switch (employee)
-//             {
-//                 case ZooKeeper:
-//                     return new ZooKeeperHireValidator(_zoo);
-//                 case Veterinarian:
-//                     return new VeterinarianHireValidator(_zoo);
-//                 default:
-//                     throw new ArgumentException("Undefined employee detected " + employee.GetType().Name);
-//             }
-//         }
-//     }
-// }
+﻿import Zoo from '../../Zoo'
+import Employee from '../../Employees/Employee'
+import Veterinarian from '../../Employees/Veterinarian'
+import ZooKeeper from '../../Employees/ZooKeeper'
+import VeterinarianHireValidator from './VeterinarianHireValidator'
+import ZooKeeperHireValidator from './ZooKeeperHireValidator'
+
+export default class HireValidatorProvider {
+
+    #zoo
+
+    constructor(zoo) {
+        if (zoo instanceof Zoo) {
+            this.#zoo = zoo
+        }
+    }
+
+    GetHireValidator(employee) {
+        if (employee instanceof Employee) {
+            if (employee instanceof ZooKeeper) {
+                return new ZooKeeperHireValidator(this.#zoo)
+            } else if (employee instanceof Veterinarian) {
+                return new VeterinarianHireValidator(this.#zoo)
+            }
+        }
+        throw new Error("Undefined employee detected " + employee.constructor.name);
+    }
+}

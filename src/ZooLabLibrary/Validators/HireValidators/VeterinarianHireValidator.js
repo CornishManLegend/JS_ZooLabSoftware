@@ -1,38 +1,33 @@
-﻿// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Text;
-// using System.Threading.Tasks;
-// using ZooLabLibrary.Employees;
-//
-// namespace ZooLabLibrary.Validators.HireValidators
-// {
-//     public class VeterinarianHireValidator : HireValidator, IHireValidator
-//     {
-//         private Zoo _zoo;
-//         public VeterinarianHireValidator(Zoo zoo)
-//         {
-//             _zoo = zoo;
-//         }
-//         public override List<string> ValidateEmployee(IEmployee employee)
-//         {
-//             var errors = new List<string>();
-//
-//             if (employee is Veterinarian veterinarian)
-//             {
-//                 foreach (var enclosure in _zoo.Enclosures)
-//                 {
-//                     foreach (var animal in enclosure.Animals)
-//                     {
-//                         if (!veterinarian.HasAnimalExperience(animal))
-//                         {
-//                             errors.Add("Veterinarian " + veterinarian.FirstName + " " + veterinarian.LastName
-//                                 + " has no experience with " + animal.GetType().Name + " " + animal.ID);
-//                         }
-//                     }
-//                 }
-//             }
-//             return errors;
-//         }
-//     }
-// }
+﻿import HireValidator from './HireValidator'
+import Zoo from '../../Zoo'
+import Veterinarian from '../../Employees/Veterinarian'
+import Animal from '../../Animals/Animal'
+
+export default class VeterinarianHireValidator extends HireValidator {
+
+    #zoo;
+
+    constructor(zoo) {
+        super();
+        if (zoo instanceof Zoo){
+            this.#zoo = zoo;
+        }
+    }
+
+    ValidateEmployee(employee){
+        let errors = []
+        if (employee instanceof Veterinarian) {
+            this.#zoo.Enclosures.forEach((enclosure)=>{
+                enclosure.Animals.forEach((animal)=>{
+                    if(animal instanceof Animal) {
+                        if (!employee.HasAnimalExperience(animal)) {
+                            errors.push('Veterinarian ' + employee.ToString()
+                                + ' has no experience with ' + animal.constructor.name + ' ' + animal.ID)
+                        }
+                    }
+                })
+            })
+        }
+        return errors;
+    }
+}

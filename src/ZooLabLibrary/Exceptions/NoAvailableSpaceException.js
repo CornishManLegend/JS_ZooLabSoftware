@@ -1,1 +1,6 @@
-﻿export default class NoAvailableSpaceException extends Error {}
+﻿export default class NoAvailableSpaceException extends Error {
+
+    constructor() {
+        super("NoAvailableSpaceException")
+    }
+}

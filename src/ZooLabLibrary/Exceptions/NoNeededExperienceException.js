@@ -1,2 +1,6 @@
-﻿export default class NoNeededExperienceException extends Error {}
+﻿export default class NoNeededExperienceException extends Error {
+    constructor() {
+        super("NoNeededExperienceException")
+    }
+}
 

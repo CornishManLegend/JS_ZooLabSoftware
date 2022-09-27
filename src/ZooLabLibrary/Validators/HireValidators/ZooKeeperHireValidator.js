@@ -1,38 +1,33 @@
-﻿// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Text;
-// using System.Threading.Tasks;
-// using ZooLabLibrary.Employees;
-//
-// namespace ZooLabLibrary.Validators.HireValidators
-// {
-//     public class ZooKeeperHireValidator : HireValidator, IHireValidator
-//     {
-//         private Zoo _zoo;
-//         public ZooKeeperHireValidator(Zoo zoo)
-//         {
-//             _zoo = zoo;
-//         }
-//         public override List<string> ValidateEmployee(IEmployee employee)
-//         {
-//             var errors = new List<string>();
-//
-//             if (employee is ZooKeeper zooKeeper)
-//             {
-//                 foreach (var enclosure in _zoo.Enclosures)
-//                 {
-//                     foreach (var animal in enclosure.Animals)
-//                     {
-//                         if (!zooKeeper.HasAnimalExperience(animal))
-//                         {
-//                             errors.Add("Veterinarian " + zooKeeper.FirstName + " " + zooKeeper.LastName
-//                                 + " has no experience with " + animal.GetType().Name + " " + animal.ID);
-//                         }
-//                     }
-//                 }
-//             }
-//             return errors;
-//         }
-//     }
-// }
+﻿import HireValidator from './HireValidator'
+import Zoo from '../../Zoo'
+import Animal from '../../Animals/Animal'
+import ZooKeeper from '../../Employees/ZooKeeper'
+
+export default class ZooKeeperHireValidator extends HireValidator {
+
+    #zoo;
+
+    constructor(zoo) {
+        super();
+        if (zoo instanceof Zoo){
+            this.#zoo = zoo;
+        }
+    }
+
+    ValidateEmployee(employee){
+        let errors = []
+        if (employee instanceof ZooKeeper) {
+            this.#zoo.Enclosures.forEach((enclosure)=>{
+                enclosure.Animals.forEach((animal)=>{
+                    if(animal instanceof Animal) {
+                        if (!employee.HasAnimalExperience(animal)) {
+                            errors.push('ZooKeeper ' + employee.ToString()
+                                + ' has no experience with ' + animal.constructor.name + ' ' + animal.ID)
+                        }
+                    }
+                })
+            })
+        }
+        return errors;
+    }
+}

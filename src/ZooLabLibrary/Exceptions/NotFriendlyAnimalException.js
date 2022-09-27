@@ -1,1 +1,5 @@
-﻿export default class NotFriendlyAnimalException extends Error {}
+﻿export default class NotFriendlyAnimalException extends Error {
+    constructor() {
+        super("NotFriendlyAnimalException")
+    }
+}

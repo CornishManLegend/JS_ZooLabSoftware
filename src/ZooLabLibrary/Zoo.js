@@ -148,28 +148,78 @@
 //
 //     }
 // }
-import Logger from '../ZooLabLibrary/Logger';
+import Logger from '../ZooLabLibrary/Logger'
+import Enclosure from './Enclosures/Enclosure'
+import Animal from './Animals/Animal'
+import NoAvailableEnclosureException from './Exceptions/NoAvailableEnclosureException'
 
 export default class Zoo {
 
-    #Enclosures = [];
-    #Employees = [];
-    #Location;
+    #Enclosures = []
+    #Employees = []
+    #Location
 
     constructor({ location }) {
-        this.#Location = location;
-        Logger.writeLine("New zoo was created in " + location);
+        this.#Location = location
+        Logger.writeLine('New zoo was created in ' + location)
     }
 
+    AddEnclosure(enclosure) {
+        if (enclosure instanceof Enclosure) {
+            this.#Enclosures.push(enclosure)
+            Logger.writeLine('New Enclosure added: ' + enclosure.Name + ' to zoo in ' + enclosure.ParentZoo.Location)
+        }
+    }
+
+    FindAvailableEnclosure(animal) {
+        if (animal instanceof Animal) {
+            this.Enclosures.forEach((enclosure) => {
+                let enclosuresSquareFeet = enclosure.SquareFeet
+                enclosure.Animals.forEach((enclosuresAnimal) => {
+                    if (enclosuresAnimal instanceof Animal) {
+                        if (enclosuresAnimal.IsFriendlyWith(animal) && animal.IsFriendlyWith(enclosuresAnimal))
+                            enclosuresSquareFeet -= enclosuresAnimal.RequiredSpaceSqFt
+                        else
+                            enclosuresSquareFeet = 0
+                    }
+                })
+
+                if (enclosuresSquareFeet >= animal.RequiredSpaceSqFt)
+                    return enclosure
+            })
+            throw new NoAvailableEnclosureException()
+        }
+    }
+
+    // HireEmployee(employee) {
+    //
+    // }
+
+    // public void HireEmployee(IEmployee employee)
+    // {
+    //     if (_hireValidatorProvider.GetHireValidator(employee).ValidateEmployee(employee).Count == 0)
+    //     {
+    //         Employees.Add(employee);
+    //
+    //         Console.WriteLine("New Employee added: " + employee.FirstName + " " + employee.LastName + " in zoo " + Location);
+    //     }
+    //     else
+    //     {
+    //         throw new NoNeededExperienceException("The employee " + employee.FirstName + " " + employee.LastName + " is not needed due to lack of experience");
+    //     }
+    //
+    // }
+
+
     get Enclosures() {
-        return this.#Enclosures;
+        return this.#Enclosures
     }
 
     get Employees() {
-        return this.#Employees;
+        return this.#Employees
     }
 
     get Location() {
-        return this.#Location;
+        return this.#Location
     }
 }

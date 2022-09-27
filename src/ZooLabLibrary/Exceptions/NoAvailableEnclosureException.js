@@ -1,1 +1,5 @@
-﻿export default class NoAvailableEnclosureException extends Error {}
+﻿export default class NoAvailableEnclosureException extends Error {
+    constructor() {
+        super("NoAvailableEnclosureException")
+    }
+}
