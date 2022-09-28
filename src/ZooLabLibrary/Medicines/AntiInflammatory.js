@@ -1,4 +1,4 @@
-﻿import Medicine from "./Medicine";
+﻿import Medicine from "./Medicine.js";
 
 export default class AntiInflammatory extends Medicine {
     constructor() {

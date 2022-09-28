@@ -1,9 +1,9 @@
-﻿import Zoo from '../../Zoo'
-import Employee from '../../Employees/Employee'
-import Veterinarian from '../../Employees/Veterinarian'
-import ZooKeeper from '../../Employees/ZooKeeper'
-import VeterinarianHireValidator from './VeterinarianHireValidator'
-import ZooKeeperHireValidator from './ZooKeeperHireValidator'
+﻿import Zoo from '../../Zoo.js'
+import Employee from '../../Employees/Employee.js'
+import Veterinarian from '../../Employees/Veterinarian.js'
+import ZooKeeper from '../../Employees/ZooKeeper.js'
+import VeterinarianHireValidator from './VeterinarianHireValidator.js'
+import ZooKeeperHireValidator from './ZooKeeperHireValidator.js'
 
 export default class HireValidatorProvider {
 

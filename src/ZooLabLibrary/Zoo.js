@@ -1,12 +1,12 @@
-﻿import Logger from '../ZooLabLibrary/Logger'
-import Enclosure from './Enclosures/Enclosure'
-import Animal from './Animals/Animal'
-import NoAvailableEnclosureException from './Exceptions/NoAvailableEnclosureException'
-import HireValidatorProvider from './Validators/HireValidators/HireValidatorProvider'
-import NoNeededExperienceException from './Exceptions/NoNeededExperienceException'
-import ZooKeeper from './Employees/ZooKeeper'
-import Veterinarian from './Employees/Veterinarian'
-import Employee from './Employees/Employee'
+﻿import Logger from '../ZooLabLibrary/Logger.js'
+import Enclosure from './Enclosures/Enclosure.js'
+import Animal from './Animals/Animal.js'
+import NoAvailableEnclosureException from './Exceptions/NoAvailableEnclosureException.js'
+import HireValidatorProvider from './Validators/HireValidators/HireValidatorProvider.js'
+import NoNeededExperienceException from './Exceptions/NoNeededExperienceException.js'
+import ZooKeeper from './Employees/ZooKeeper.js'
+import Veterinarian from './Employees/Veterinarian.js'
+import Employee from './Employees/Employee.js'
 
 export default class Zoo {
 

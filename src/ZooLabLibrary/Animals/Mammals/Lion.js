@@ -1,7 +1,7 @@
-﻿import Medicine from '../../Medicines/Medicine';
-import Food from '../../Foods/Food';
-import Animal from '../Animal';
-import Mammal from './Mammal';
+﻿import Medicine from '../../Medicines/Medicine.js';
+import Food from '../../Foods/Food.js';
+import Animal from '../Animal.js';
+import Mammal from './Mammal.js';
 
 export default class Lion extends Mammal {
 

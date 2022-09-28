@@ -1,7 +1,7 @@
-﻿import Medicine from '../../Medicines/Medicine';
-import Food from '../../Foods/Food';
-import Animal from '../Animal';
-import Reptile from './Reptile';
+﻿import Medicine from '../../Medicines/Medicine.js';
+import Food from '../../Foods/Food.js';
+import Animal from '../Animal.js';
+import Reptile from './Reptile.js';
 
 export default class Turtle extends Reptile {
 

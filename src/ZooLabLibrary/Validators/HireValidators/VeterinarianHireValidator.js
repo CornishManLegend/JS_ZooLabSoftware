@@ -1,7 +1,7 @@
-﻿import HireValidator from './HireValidator'
-import Zoo from '../../Zoo'
-import Veterinarian from '../../Employees/Veterinarian'
-import Animal from '../../Animals/Animal'
+﻿import HireValidator from './HireValidator.js'
+import Zoo from '../../Zoo.js'
+import Veterinarian from '../../Employees/Veterinarian.js'
+import Animal from '../../Animals/Animal.js'
 
 export default class VeterinarianHireValidator extends HireValidator {
 

@@ -1,4 +1,4 @@
-﻿import Animal from '../Animals/Animal'
+﻿import Animal from '../Animals/Animal.js'
 
 export default class Employee {
     #FirstName

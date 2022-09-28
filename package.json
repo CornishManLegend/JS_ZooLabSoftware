@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "imports": {
+    "./filename": "./filename.js"
+  },
   "scripts": {
+    "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' node src/index.js",
     "eslint": "eslint *.js",
     "test": "jest --coverage",
     "test-cov": "jest --coverage",
@@ -34,7 +39,7 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "eslint": "8.22.0",
+    "eslint": "^8.22.0",
     "jest-globals": "^0.1.7"
   }
 }

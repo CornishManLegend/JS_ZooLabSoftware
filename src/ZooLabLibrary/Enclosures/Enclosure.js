@@ -1,8 +1,8 @@
-﻿import Animal from '../Animals/Animal'
-import Logger from '../Logger'
-import Zoo from '../Zoo'
-import NoAvailableSpaceException from '../Exceptions/NoAvailableSpaceException'
-import NotFriendlyAnimalException from '../Exceptions/NotFriendlyAnimalException'
+﻿import Animal from '../Animals/Animal.js'
+import Logger from '../Logger.js'
+import Zoo from '../Zoo.js'
+import NoAvailableSpaceException from '../Exceptions/NoAvailableSpaceException.js'
+import NotFriendlyAnimalException from '../Exceptions/NotFriendlyAnimalException.js'
 
 export default class Enclosure {
 

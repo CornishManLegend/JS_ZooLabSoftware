@@ -1,4 +1,6 @@
-﻿export default class FeedTime {
+﻿import ZooKeeper from '../Employees/ZooKeeper.js'
+
+export default class FeedTime {
 
     #FeedTime
     #FeedByZooKeeper

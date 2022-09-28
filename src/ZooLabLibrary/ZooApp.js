@@ -1,5 +1,5 @@
-import Zoo from './Zoo'
-import Logger from './Logger'
+import Zoo from './Zoo.js'
+import Logger from './Logger.js'
 
 export default class ZooApp {
 

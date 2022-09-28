@@ -1,7 +1,7 @@
-﻿import Medicine from '../../Medicines/Medicine';
-import Food from '../../Foods/Food';
-import Animal from '../Animal';
-import Bird from './Bird';
+﻿import Medicine from '../../Medicines/Medicine.js';
+import Food from '../../Foods/Food.js';
+import Animal from '../Animal.js';
+import Bird from './Bird.js';
 
 export default class Parrot extends Bird {
 
