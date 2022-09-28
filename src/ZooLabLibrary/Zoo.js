@@ -18,7 +18,7 @@ export default class Zoo {
     constructor({ location }) {
         this.#Location = location
         this.#hireValidatorProvider = new HireValidatorProvider(this)
-        Logger.writeLine('New zoo was created in ' + location)
+        Logger.writeLine('New zoo was created in ' + this.#Location)
     }
 
     AddEnclosure(enclosure) {
